@@ -1,7 +1,12 @@
-//importing modules
+//importing external modules
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const request = require('request')
+
+//importing internal modules
+const geocode = require(path.join(__dirname, '../src/utils/geocode'))
+const forecast = require(path.join(__dirname, '../src/utils/forecast'))
 
 //starting up express
 const app = express()
@@ -23,7 +28,7 @@ app.use(express.static(publicDirectoryPath))
 //root
 app.get('', (req, res) => {
 	res.render('index', {
-		title: 'Weather',
+		title: 'Home',
 		name: 'Daniel Brog'
 	})
 })
@@ -44,11 +49,32 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req,res) => {
-	res.send({
-		location: 'Toronto',
-		forecast: 'It is 15 degrees Celsius'
+	if(!req.query.address){
+		return res.render('weather',{
+			title: 'Weather',
+			name: 'Daniel Brog'
+		})
+	}
+
+	//call geocode util to get weather data, return json object with temperature/precipitation
+	geocode(req.query.address, (err, {latitude, longitude, location}={}) => {
+		if(err){
+		return res.send({err})
+		}
+		forecast(latitude,longitude, (err, data) => {
+			if(err){
+				return res.send({err})
+			}
+			const {temperature, precipChance}=data
+			res.send({
+				temperature,
+				precipChance,
+				location: location
+			})
+		})
 	})
 })
+
 app.get('/help/*', (req, res) => {
 	res.render('404', {
 		error: '404',
@@ -57,7 +83,7 @@ app.get('/help/*', (req, res) => {
 	})
 
 })
-//404 page
+//404 page 
 app.get('*', (req, res) => {
 	res.render('404',{
 		error: '404',
