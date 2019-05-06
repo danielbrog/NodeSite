@@ -2,4 +2,7 @@
 danielbrog site
 
 
-to install, run 'npm install' to install all npm packages then 'node src/app.js' will start the server on localhost:3002.
+To install, run 'npm install' to install all npm packages.
+You may need to run 'npm audit fix' depending on os.
+
+Then 'node src/app.js' will start the server on localhost:3002.
