@@ -20,6 +20,7 @@ hbs.registerPartials(partialsPath)
 app.use(express.static(publicDirectoryPath))
 
 //routing ---
+//root
 app.get('', (req, res) => {
 	res.render('index', {
 		title: 'Weather',
@@ -47,6 +48,23 @@ app.get('/weather', (req,res) => {
 		location: 'Toronto',
 		forecast: 'It is 15 degrees Celsius'
 	})
+})
+app.get('/help/*', (req, res) => {
+	res.render('404', {
+		error: '404',
+		errorMessage: 'Help article not found',
+		name: 'Daniel Brog'
+	})
+
+})
+//404 page
+app.get('*', (req, res) => {
+	res.render('404',{
+		error: '404',
+		errorMessage: 'Page not found',
+		name: 'Daniel Brog'
+	})
+
 })
 //end routing ---
 
