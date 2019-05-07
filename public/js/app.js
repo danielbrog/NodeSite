@@ -9,7 +9,7 @@ const messageTwo = document.querySelector('#message-2')
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
-    const fetchUrl = 'https://danielbrog.com/weather?address=' + search.value
+    const fetchUrl = '/weather?address=' + search.value
 
     if (!search.value) {
         messageOne.textContent = 'Please enter a valid address'
