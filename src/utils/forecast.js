@@ -8,6 +8,9 @@ const forecast = (latitude,longitude, callback) => {
 			callback('Unable to find location',undefined)
 		}else{
 			callback(undefined, {
+				summary: body.hourly.summary,
+				tempHigh: body.daily.data[0].temperatureMax,
+				tempLow: body.daily.data[0].temperatureMin,
 				temperature: body.currently.temperature,
 				precipChance: body.currently.precipProbability
 			})

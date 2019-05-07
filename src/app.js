@@ -40,14 +40,6 @@ app.get('/about', (req, res) => {
 	})
 })
 
-app.get('/help', (req, res) => {
-	res.render('help', {
-		title: 'Need Help?',
-		name: 'Daniel Brog',
-		helpText: 'Here is some help.'
-	})
-})
-
 app.get('/weather', (req,res) => {
 	if(!req.query.address){
 		return res.render('weather',{
@@ -56,7 +48,7 @@ app.get('/weather', (req,res) => {
 		})
 	}
 
-	//call geocode util to get weather data, return json object with temperature/precipitation
+	//call geocode util then forecast to get weather data, return json object with temperature/precipitation
 	geocode(req.query.address, (err, {latitude, longitude, location}={}) => {
 		if(err){
 		return res.send({err})
@@ -65,13 +57,32 @@ app.get('/weather', (req,res) => {
 			if(err){
 				return res.send({err})
 			}
-			const {temperature, precipChance}=data
+			const {temperature, precipChance, tempHigh, tempLow, summary}=data
 			res.send({
+				summary,
+				tempHigh,
+				tempLow,
 				temperature,
 				precipChance,
 				location: location
 			})
 		})
+	})
+})
+
+app.get('/app', (req, res) => {
+	res.render('AppList', {
+		title: 'List of Apps',
+		name: 'Daniel Brog'
+	})
+})
+
+app.get('/help', (req, res) => {
+	res.render('help', {
+		title: 'Need Help?',
+		name: 'Daniel Brog',
+		helpText: 'If you need any help, or have comments/concerns please let me know at: ',
+		email: 'brog.daniel@gmail.com'
 	})
 })
 
