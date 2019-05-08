@@ -3,6 +3,7 @@ const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 const request = require('request')
+const mysql = require('mysql')
 
 //importing internal modules
 const geocode = require(path.join(__dirname, '../src/utils/geocode'))
@@ -23,6 +24,26 @@ hbs.registerPartials(partialsPath)
 
 //set up static directory to serve
 app.use(express.static(publicDirectoryPath))
+
+//connectinog to db
+const options = {
+	user: 'daniel',
+	password: 'zaq1',
+	database: 'danielDB'
+  }
+  const connection = mysql.createConnection(options)
+
+  connection.connect(err => {
+	if (err) {
+	  console.error('An error occurred while connecting to the DB')
+	  throw err
+	}
+  })
+
+  connection.query('SELECT 1+1 AS Solution', (err,res,field) =>{
+	  if (err) throw err;
+	  console.log('The solution is: ', res[0].Solution)
+  })
 
 //routing ---
 //root
