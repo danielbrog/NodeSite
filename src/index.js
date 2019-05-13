@@ -31,13 +31,6 @@ app.use(express.json())
 
 
 //routing ---
-//root
-app.get('', (req, res) => {
-	res.render('index', {
-		title: 'Home',
-		name: 'Daniel Brog'
-	})
-}) 
 
 //Routing using express router
 //user and task router
@@ -47,6 +40,15 @@ app.use(taskRouter)
 app.use(barPagesRouter)
 //weather route
 app.use(weatherRouter)
+
+//remaingin routes
+//root
+app.get('', (req, res) => {
+	res.render('index', {
+		title: 'Home',
+		name: 'Daniel Brog'
+	})
+}) 
 
 //admin page
 app.get('/admin', (req, res) => {
@@ -63,9 +65,3 @@ app.get('*', (req, res) => {
 
 })
 //end routing ---
-
-
-//start server on port 3002
-app.listen(3002, () => {
-	console.log('Server is up on port 3002')
-})
