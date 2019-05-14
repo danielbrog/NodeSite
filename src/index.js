@@ -2,6 +2,8 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 //setting pathing for express
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -14,11 +16,11 @@ const taskRouter = require('./routers/task')
 const barPagesRouter = require('./routers/barPages')
 const weatherRouter = require('./routers/weather')
 
-//starting up express
-const app = express()
-
 //db start
 require('./db/mongoose')
+
+//starting up express
+const app = express()
 
 //setting up handlebars
 app.set('view engine', 'hbs')
@@ -65,3 +67,9 @@ app.get('*', (req, res) => {
 
 })
 //end routing ---
+
+
+//start server on port 3002
+app.listen(3002, () => {
+	console.log('Server is up on port 3002')
+})
