@@ -2,8 +2,7 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+
 
 //setting pathing for express
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -43,7 +42,7 @@ app.use(barPagesRouter)
 //weather route
 app.use(weatherRouter)
 
-//remaingin routes
+//remaining routes
 //root
 app.get('', (req, res) => {
 	res.render('index', {
