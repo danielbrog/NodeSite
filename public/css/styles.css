@@ -16,6 +16,7 @@ body {
 
 .portrait {
 	width: 250px;
+	float:left;
 }
 
 
@@ -47,6 +48,10 @@ footer a{
 header a:hover,
 footer a:hover{
 	color: #333333
+}
+
+#rightnav{
+	float:right;
 }
 
 a{

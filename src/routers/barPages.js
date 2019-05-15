@@ -14,7 +14,7 @@ router.get('/app', (req, res) => {
 		name: 'Daniel Brog'
 	})
 })
-
+/*
 router.get('/help', (req, res) => {
 	res.render('help', {
 		title: 'Need Help?',
@@ -31,6 +31,20 @@ router.get('/help/*', (req, res) => {
 		name: 'Daniel Brog'
 	})
 
+})
+*/
+router.get('/login', (req, res) => {
+	res.render('login', {
+		title: 'Login',
+		name: 'Daniel Brog',
+	})
+})
+
+router.get('/profile', (req, res) => {
+	res.render('profile', {
+		title: 'Profile',
+		name: 'Daniel Brog',
+	})
 })
 
 module.exports = router

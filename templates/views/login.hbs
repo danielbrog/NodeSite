@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{{title}}</title>
+	<link rel="icon" href="/img/icon.png">
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+	<div class="main-content">
+		{{>header}}
+		<p>Please enter your credentials to log in.</p>
+
+		<form>
+			<input id="email" placeholder="Email">
+			<input id="pass" type="password"placeholder="Password">
+			<button>Login</button>
+		</form>
+
+        <p id="message-1"></p>
+		<p id="message-2"></p>
+	</div>
+	<p id="test"></p>
+	{{>footer}}
+	<script src="/js/login.js"></script>
+</body>
+
+</html>

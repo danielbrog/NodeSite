@@ -30,7 +30,6 @@ hbs.registerPartials(partialsPath)
 app.use(express.static(publicDirectoryPath))
 app.use(express.json())
 
-
 //routing ---
 
 //Routing using express router
@@ -67,8 +66,8 @@ app.get('*', (req, res) => {
 })
 //end routing ---
 
-
 //start server on port 3002
 app.listen(3002, () => {
 	console.log('Server is up on port 3002')
 })
+
