@@ -40,6 +40,11 @@ router.get('/login', (req, res) => {
 	})
 })
 
+router.get('/logout', (req, res) => {
+	res.render('logout', {
+	})
+})
+
 router.get('/profile', (req, res) => {
 	res.render('profile', {
 		title: 'Profile',

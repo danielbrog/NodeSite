@@ -6,6 +6,9 @@ const messageTwo = document.querySelector('#message-2')
 
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault()
+    if(false){
+        console.log('madeit')
+    }
 
     if(!email || !password){
         messageOne.textContent = 'Please enter a valid email address and password'
@@ -30,12 +33,9 @@ loginForm.addEventListener('submit', (e) => {
                     messageOne.textContent = "There was an error logging in."
                 } else {
                     window.sessionStorage.setItem('AuthToken', data.token)
-                    messageOne.textContent = window.sessionStorage.getItem('AuthToken')
+                    location.replace("/profile")
                 }
             })
         })
-
     }
-
-
 })
