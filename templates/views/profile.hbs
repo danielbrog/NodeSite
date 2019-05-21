@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<title>{{title}}</title>
-		<link rel="icon" href="/img/icon.png">
-		<link rel="stylesheet" href="/css/styles.css">
-	</head>
-	<body>
-		<div class="main-content">
-			{{>header}}
-            <img class="portrait" src="">
-			<p>This is your profile page.</p>
-            <p id="info"></p>
+<head>
+	<title>{{title}}</title>
+	<link rel="icon" href="/img/icon.png">
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+	<div class="main-content">
+		{{>header}}
+		<img class="portrait" src="">
+		<p>This is your profile page.</p>
+		<div class="profile info">
+			<p id="info"></p>
+			<p id="name"></p>
+			<p id="email"></p>
+			<p id="age"></p>
+			<p id="password"></p>
 		</div>
-		{{>footer}}
-        <script src="/js/profile.js"></script>
-	</body>
+	</div>
+	{{>footer}}
+	<script src="/js/profile/profile.js"></script>
+</body>
+
 </html>

@@ -18,5 +18,6 @@ try {
 
     console.log(user)
 } catch (e){
-
+    console.log('no portriat')
+    document.querySelector('.portrait').src= ''
 }
