@@ -40,6 +40,13 @@ router.get('/login', (req, res) => {
 	})
 })
 
+router.get('/createAccount', (req, res) => {
+	res.render('createAccount', {
+		title: 'Create new Account',
+		name: 'Daniel Brog',
+	})
+})
+
 router.get('/logout', (req, res) => {
 	res.render('logout', {
 	})
