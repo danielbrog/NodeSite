@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{{title}}</title>
+	<link rel="icon" href="/img/icon.png">
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+	<div class="main-content">
+		{{>header}}
+		<p>This is the Weather app Page.</p>
+
+		<form>
+			<input id="user" placeholder="Username">
+			<input id="pass" type="password"placeholder="Password">
+			<button>Search</button>
+		</form>
+	</div>
+	<p id="test"></p>
+	{{>footer}}
+	<script src="/js/admin.js"></script>
+</body>
+
+</html>
