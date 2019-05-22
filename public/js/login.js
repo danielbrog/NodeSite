@@ -47,9 +47,3 @@ loginForm.addEventListener('submit', (e) => {
 function setLogin(arg) {
     submitType = arg;
 }
-
-loginForm.addEventListener('test', (e) => {
-    e.preventDefault()
-
-    messageOne.textContent = "TEST"
-})

@@ -8,18 +8,31 @@
 </head>
 
 <body>
+	{{>header}}
 	<div class="main-content">
-		{{>header}}
-		<img class="portrait" src="">
-		<p>This is your profile page.</p>
+		
+		<h3>This is 's profile page.</h3>
+		<p id="errorInfo"></p>
+		<form>
+		<div class = "avatar">
+			Avatar
+		<img class="portrait" src="" onError="noImage()">
+		<input type="file" id="pic" style="display: none;"accept="image/*">
+		</div>
 		<div class="profile info">
 			<p id="info"></p>
-			<p id="name"></p>
-			<p id="email"></p>
-			<p id="age"></p>
-			<p id="password"></p>
+			<p id="name"></p><input id="nameInput" placeholder="Name">
+			<p id="email"></p><input id="emailInput" placeholder="Email">
+			<p id="age"></p><input id="ageInput" placeholder="Age">
+			<p id="password"></p><input id="passwordInput" type="password" placeholder="Password">
+			
+			<button id="updateButton"> Update</button>
+			
 		</div>
+		</form>
+	<button onclick="update()" id="formButton">Update Profile</button>	
 	</div>
+	
 	{{>footer}}
 	<script src="/js/profile/profile.js"></script>
 </body>

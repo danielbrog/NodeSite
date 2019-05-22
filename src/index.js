@@ -44,7 +44,7 @@ app.use(weatherRouter)
 //remaining routes
 //root
 app.get('', (req, res) => {
-	res.render('index', {
+	res.render('mainpages/index', {
 		title: 'Home',
 		name: 'Daniel Brog'
 	})
@@ -52,12 +52,12 @@ app.get('', (req, res) => {
 
 //admin page
 app.get('/admin', (req, res) => {
-	res.render('admin')
+	res.render('admin/admin')
 })
 
 //404 page 
 app.get('*', (req, res) => {
-	res.render('404', {
+	res.render('mainpages/404', {
 		error: '404',
 		errorMessage: 'Page not found',
 		name: 'Daniel Brog'

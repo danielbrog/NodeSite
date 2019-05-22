@@ -19,11 +19,29 @@ body {
 	float:left;
 	padding-right: 16px;
 }
+.avatar{
+	text-align: center;
+	text-decoration: underline;
+	width: 250px;
+	float:left;
+	padding-right: 16px;
+}
 
 
 h1{
 	font-size: 64px;
 	margin-bottom: 16px;
+}
+
+h3{
+	text-align: center;
+	margin-bottom: 16px;
+}
+
+p#errorInfo{
+	text-align: center;
+	margin-bottom: 16px;
+	color:red;
 }
 
 footer{
@@ -75,6 +93,11 @@ button {
 	color: white;
 	padding: 8px;
 	margin-top: 8px;
+}
+
+button:hover{
+	border: 1px solid black;
+	background: #555555;
 }
 
 /*

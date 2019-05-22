@@ -2,14 +2,14 @@ const express = require('express')
 const router = new express.Router()
 
 router.get('/about', (req, res) => {
-	res.render('about', {
+	res.render('mainpages/about', {
 		title: 'About Me',
 		name: 'Daniel Brog'
 	})
 })
 
 router.get('/app', (req, res) => {
-	res.render('AppList', {
+	res.render('mainpages/AppList', {
 		title: 'List of Apps',
 		name: 'Daniel Brog'
 	})
