@@ -23,7 +23,6 @@ try {
     }).then((response) => {
         response.json().then((data) => {
             document.querySelector('.portrait').src = '/users/' + data._id + '/avatar'
-
             document.querySelector('#name').textContent = 'Name: ' + data.name
             document.querySelector('#email').textContent = 'Email: ' + data.email
             document.querySelector('#age').textContent = 'Age: ' + data.age

@@ -10,6 +10,11 @@ body {
 	min-height: 100vh;
 }
 
+#error{
+	color: red;
+	
+}
+
 .main-content{
 	flex-grow: 1;
 }

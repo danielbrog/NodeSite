@@ -3,7 +3,14 @@ const router = new express.Router()
 const Task = require('../models/task')
 const auth = require('../middleware/auth')
 
-router.post('/tasks', auth, async (req, res) => {
+router.get('/taskApp', async  (req, res) => {
+	res.render('apps/task', {
+		title: 'Tasks',
+		name: 'Daniel Brog'
+	})
+})
+
+router.post('/tasks',  async (req, res) => {
     const task = new Task({
         ... req.body,
         author: req.user._id
