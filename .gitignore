@@ -2,3 +2,5 @@ node_modules
 avatars
 images
 public/img
+config
+tests

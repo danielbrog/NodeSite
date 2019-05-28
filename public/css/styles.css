@@ -10,9 +10,19 @@ body {
 	min-height: 100vh;
 }
 
+#tasks {
+    max-width: 75%;
+    border: 1px solid #666666;
+    height: 750px;
+    margin: 32px  auto;
+    
+    /*overflow-y: scroll;*/
+    border-radius:10px;
+}
+
 #error{
 	color: red;
-	
+
 }
 
 .main-content{
@@ -98,6 +108,7 @@ button {
 	color: white;
 	padding: 8px;
 	margin-top: 8px;
+	margin-left: 8px;
 }
 
 button:hover{
