@@ -70,26 +70,25 @@ router.get('/tasks/:id', auth, async (req, res) => {
 	}
 })
 
-router.patch('/tasks/:id', async (req, res) => {
+router.patch('/tasks/:id', auth, async (req, res) => {
+	
 	const tasks = Object.keys(req.body)
 	const allowedUpdates = ['description', 'completed']
 	const isValidOperation = tasks.every((task) => (allowedUpdates).includes(task))
-
 	if (!isValidOperation) {
 		return res.status(500).send({ error: 'Invalid Updates' })
 	}
 
 	try {
-        const task = await Task.findOne({ _id: req.params.id, author: req.user._id})
-
-        if (!task) {
+		const updatedTask = await Task.findOne({ _id: req.params.id, author: req.user._id})
+        if (!updatedTask) {
 			res.status(404).send()
-        }
-        
-        tasks.forEach((task) => updatedTask[task] = req.body[task])
+		}
+		tasks.forEach((task) => updatedTask[task] = req.body[task])
         await updatedTask.save()
-		res.send(task)
+		res.send(updatedTask)
 	} catch (e) {
+		console.log('shit')
 		res.status(500).send(e)
 	}
 })
