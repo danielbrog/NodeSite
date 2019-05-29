@@ -10,7 +10,7 @@ router.get('/taskApp', async  (req, res) => {
 	})
 })
 
-router.post('/tasks',  async (req, res) => {
+router.post('/tasks', auth,  async (req, res) => {
     const task = new Task({
         ... req.body,
         author: req.user._id
