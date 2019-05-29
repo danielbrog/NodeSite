@@ -97,10 +97,12 @@ taskForm.addEventListener('submit', (e) => {
             'Authorization': 'Bearer ' + authToken
         },
         body: JSON.stringify(newTask)
+    }).then(() => {
+        document.getElementById('newTask').style.display = "none"
+        document.getElementById('tasks').remove()
+        populateTasks()
     })
-    document.getElementById('newTask').style.display = "none"
-    document.getElementById('tasks').remove()
-    populateTasks()
+
 })
 
 function newTask(){
