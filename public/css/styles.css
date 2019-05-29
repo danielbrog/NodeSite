@@ -10,6 +10,10 @@ body {
 	min-height: 100vh;
 }
 
+#newTask {
+	display: none;
+}
+
 #taskWindow {
     max-width: 75%;
     border: 1px solid #666666;

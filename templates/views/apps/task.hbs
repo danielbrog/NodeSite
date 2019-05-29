@@ -11,14 +11,20 @@
 	
 	<div class="main-content">
 	{{>header}}
-    <script src="/js/loggedTask.js"></script>
-	<script src="/js/task.js"></script>
-    
+
+    <div id="newTask">
+		<form>
+			<input id="description" placeholder="Task Description">
+			<button>Add Task</button>
+		</form>
+	</div>
     <div id="taskWindow">
-    	<a href="/newTask"><button>New Task</button></a>
+    	<button onclick="newTask()">New Task</button>
 		<button onclick="removeCompleted()">Remove Completed</button></a>
     </div>
 	</div>
+	<script src="/js/loggedTask.js"></script>
+	<script src="/js/task.js"></script>
 	{{>footer}}
 	
 </body>

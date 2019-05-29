@@ -1,4 +1,7 @@
+const taskForm = document.querySelector('form')
 const authToken = window.sessionStorage.getItem('AuthToken')
+const newDesc = document.querySelector('#description')
+
 function populateTasks(){
 fetch('/tasks', {
     method: 'GET',
@@ -81,6 +84,27 @@ function removeCompleted(){
     })
     document.getElementById('tasks').remove()
     populateTasks()
+}
+
+taskForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const newTask = {"description": newDesc.value}
+    fetch('/tasks',{
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + authToken
+        },
+        body: JSON.stringify(newTask)
+    })
+    document.getElementById('newTask').style.display = "none"
+    document.getElementById('tasks').remove()
+    populateTasks()
+})
+
+function newTask(){
+    document.getElementById('newTask').style.display = "block"
 }
 
 populateTasks()
