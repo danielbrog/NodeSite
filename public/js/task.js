@@ -1,5 +1,5 @@
 const authToken = window.sessionStorage.getItem('AuthToken')
-
+function populateTasks(){
 fetch('/tasks', {
     method: 'GET',
     headers: {
@@ -11,13 +11,14 @@ fetch('/tasks', {
     response.json().then((data) => {
 
         const tasks = document.createElement('div')
+        tasks.id = 'tasks'
         data.forEach((task)=> {
             tasks.append(makeTaskElement(task))
         })
-        document.getElementById('tasks').append(tasks)
+        document.getElementById('taskWindow').append(tasks)
     })
 })
-
+}
 function makeTaskElement(task){
 
     const description = document.createElement('p')
@@ -70,4 +71,16 @@ function completeTask(){
 
 function removeCompleted(){
     console.log('removing...')
+    fetch('/tasks',{
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + authToken
+        }
+    })
+    document.getElementById('tasks').remove()
+    populateTasks()
 }
+
+populateTasks()
