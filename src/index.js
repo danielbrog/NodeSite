@@ -50,6 +50,16 @@ app.get('', (req, res) => {
 	})
 }) 
 
+//testing React
+const expensifyPath = path.join(publicDirectoryPath, 'ReactApps','ExpensifyApp')
+app.use(express.static(expensifyPath))
+app.get('/home', (req, res) => {
+	res.sendFile(path.join(expensifyPath,'index.html'))
+})
+app.get('/create', (req, res) => {
+	res.sendFile(path.join(expensifyPath,'index.html'))
+})
+
 //admin page
 app.get('/admin', (req, res) => {
 	res.render('admin/admin')
