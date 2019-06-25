@@ -43,11 +43,10 @@ app.use(weatherRouter)
 
 //remaining routes
 //root
+const homePath = path.join(publicDirectoryPath, 'ReactApps','HomePage')
+app.use(express.static(homePath))
 app.get('', (req, res) => {
-	res.render('mainpages/index', {
-		title: 'Home',
-		name: 'Daniel Brog'
-	})
+	res.sendFile(path.join(homePath,'index.html'))
 }) 
 
 //testing React
@@ -59,6 +58,8 @@ app.get('/home', (req, res) => {
 app.get('/create', (req, res) => {
 	res.sendFile(path.join(expensifyPath,'index.html'))
 })
+
+
 
 //admin page
 app.get('/admin', (req, res) => {

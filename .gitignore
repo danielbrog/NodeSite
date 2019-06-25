@@ -5,4 +5,11 @@ public/img
 config
 tests
 process.json
-public/ReactApps/ExpensifyApp/*
+public/ReactApps/ExpensifyApp/images
+public/ReactApps/ExpensifyApp/*.js
+public/ReactApps/ExpensifyApp/*.css
+public/ReactApps/ExpensifyApp/*.map
+public/ReactApps/HomePage/images
+public/ReactApps/HomePage/*.js
+public/ReactApps/HomePage/*.css
+public/ReactApps/HomePage/*.map
