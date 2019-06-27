@@ -27,7 +27,7 @@ app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
 //set up static directory to serve
-app.use(express.static(publicDirectoryPath))
+app.use(express.static(path.join(publicDirectoryPath)))
 app.use(express.json())
 
 //routing ---
@@ -41,25 +41,17 @@ app.use(barPagesRouter)
 //weather route
 app.use(weatherRouter)
 
-//remaining routes
-//root
-const homePath = path.join(publicDirectoryPath, 'ReactApps','HomePage')
-app.use(express.static(homePath))
-app.get('', (req, res) => {
-	res.sendFile(path.join(homePath,'index.html'))
-}) 
-
-//testing React
-const expensifyPath = path.join(publicDirectoryPath, 'ReactApps','ExpensifyApp')
-app.use(express.static(expensifyPath))
-app.get('/home', (req, res) => {
-	res.sendFile(path.join(expensifyPath,'index.html'))
-})
-app.get('/create', (req, res) => {
-	res.sendFile(path.join(expensifyPath,'index.html'))
+//ExpenseApp routing
+app.use('/ExpenseApp',express.static(path.join(publicDirectoryPath, 'ReactApps','ExpensifyApp')))
+app.get('/ExpenseApp', (req, res) => {
+	res.sendFile(path.join(publicDirectoryPath, 'ReactApps','ExpensifyApp', 'index.html'))
 })
 
-
+//root (react homepage) routing
+app.use('/',express.static(path.join(publicDirectoryPath, 'ReactApps','HomePage')))
+app.get('/', (req, res) => {
+	res.sendFile(path.join(publicDirectoryPath, 'ReactApps','HomePage', 'index.html'))
+})
 
 //admin page
 app.get('/admin', (req, res) => {
