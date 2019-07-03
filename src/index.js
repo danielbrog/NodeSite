@@ -42,8 +42,8 @@ app.use(barPagesRouter)
 app.use(weatherRouter)
 
 //ExpenseApp routing
-app.use('/ExpenseApp',express.static(path.join(publicDirectoryPath, 'ReactApps','ExpensifyApp')))
-app.get('/ExpenseApp', (req, res) => {
+app.use('/ExpenseApp/',express.static(path.join(publicDirectoryPath, 'ReactApps','ExpensifyApp')))
+app.get('/ExpenseApp/', (req, res) => {
 	res.sendFile(path.join(publicDirectoryPath, 'ReactApps','ExpensifyApp', 'index.html'))
 })
 
