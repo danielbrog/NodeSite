@@ -1,9 +1,15 @@
 # NodeSite
-www.danielbrog.com site, view what I've done in code.
+Serves a Site with several functionalities including:
 
-I have removed all of the API keys and sensitive material.
+### Log-In
+Log in to an authenticated account on the MongoDB server.  Passwords fully encrypted using bcrypt hashing.
+can also create an account.
 
+### Profile Page
+On the user page can update credentials as well as age and uploading a small image to the database to use as an avatar.
 
-To install, run 'npm install' to install all npm packages. (run as sudo if on linux)
+### Weather
+Integrates a previous project created using Node to make external api requests and fetch weather data.
 
-Then 'npm run dev' will start a development instance of the server on localhost:3002.
+### Task App
+Make internal api requests to create, read update and delete tasks and save them to the server.  Requires authentication to complete.
