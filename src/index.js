@@ -14,6 +14,7 @@ const userRouter = require('./routers/user')
 const taskRouter = require('./routers/task')
 const barPagesRouter = require('./routers/barPages')
 const weatherRouter = require('./routers/weather')
+const geoPhotoRouter = require('./routers/location')
 
 //db start
 require('./db/mongoose')
@@ -36,6 +37,10 @@ app.use(express.json())
 //user and task router
 app.use(userRouter)
 app.use(taskRouter)
+
+//Geophoto Routing
+app.use(geoPhotoRouter)
+
 //basic pages routing
 app.use(barPagesRouter)
 //weather route
