@@ -2,7 +2,7 @@ const express = require('express')
 const router = new express.Router()
 const Location = require('../models/location')
 
-router.post('/addLocation', async (req, res) => {
+router.post('/api/location', async (req, res) => {
     const newLoc = new Location({
         ... req.body
     })
@@ -15,8 +15,13 @@ router.post('/addLocation', async (req, res) => {
 	}
 })
 
-router.get('/getLocations', (req, res) => {
-
+router.get('/api/locations', async (req, res) => {
+    try{
+        const locations = await Location.find()
+        res.status(201).send(locations)
+    } catch (e) {
+        res.status(400).send(e)
+    }
 })
 
 module.exports = router
