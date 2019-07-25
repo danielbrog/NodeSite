@@ -6,7 +6,6 @@ router.post('/api/location', async (req, res) => {
     const newLoc = new Location({
         ... req.body
     })
-
     try {
 		await newLoc.save()
 		res.status(201).send(newLoc)

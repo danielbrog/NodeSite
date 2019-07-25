@@ -27,6 +27,12 @@ try {
             document.querySelector('#email').textContent = 'Email: ' + data.email
             document.querySelector('#age').textContent = 'Age: ' + data.age
             document.querySelector('h3').textContent = 'This is ' + data.name + '\'s profile page.'
+
+            document.querySelector('#nameInput').value = data.name
+            document.querySelector('#emailInput').value = data.email
+            document.querySelector('#ageInput').value = data.age
+            document.querySelector('#passwordInput').placeholder = "New password"
+
         })
     })
     
