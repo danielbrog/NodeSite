@@ -1,11 +1,28 @@
 const express = require('express')
 const router = new express.Router()
 const Location = require('../models/location')
+const multer = require('multer')
 
-router.post('/api/location', async (req, res) => {
+const upload = multer({
+    limits: {
+        fileSize: 1000000
+    },
+    fileFilter(req, file, cb) {
+        if(!file.originalname.match(/\.(jpg|jpeg|png)$/)){
+            return cb(new Error('File must be an image (jpg,jpeg,png).'))
+        }
+
+        cb(undefined, true)
+    }
+})
+
+
+router.post('/api/location', upload.single('image'), async (req, res) => {
     const newLoc = new Location({
-        ... req.body
+        ... req.body,
+        image: req.image
     })
+    
     try {
 		await newLoc.save()
 		res.status(201).send(newLoc)

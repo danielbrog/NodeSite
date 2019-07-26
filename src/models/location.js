@@ -12,7 +12,8 @@ const locationSchema = new mongoose.Schema({
         type: Array,
     },
     image: {
-        type: Buffer
+        type: Buffer,
+        required: true
     },
     latitude: {
         type: String,
