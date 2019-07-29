@@ -18,11 +18,11 @@ const upload = multer({
 
 
 router.post('/api/location', upload.single('image'), async (req, res) => {
+    const image = req.file.buffer
     const newLoc = new Location({
         ... req.body,
-        image: req.image
+        image: image
     })
-    
     try {
 		await newLoc.save()
 		res.status(201).send(newLoc)
@@ -38,6 +38,17 @@ router.get('/api/locations', async (req, res) => {
     } catch (e) {
         res.status(400).send(e)
     }
+})
+
+router.get('/api/:id/image', async (req,res) => {
+    try{
+        const location = await Location.findById(req.params.id)
+        res.set('Content-Type', 'image/png')
+        res.status(201).send(location.image)
+    } catch (e) {
+        res.status(400).send(e)
+    }
+    
 })
 
 module.exports = router
