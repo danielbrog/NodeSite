@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const validator = require('validator')
 
 const locationSchema = new mongoose.Schema({
     title: {
@@ -9,19 +10,29 @@ const locationSchema = new mongoose.Schema({
         type: String
     },
     tags: {
-        type: Array,
+        type: [String],
+        validate(value){
+            if(value.length<4){
+
+            }else{
+                throw new Error('only 3 tags allowed')
+            }
+        }
     },
     image: {
         type: Buffer,
         required: true
     },
-    latitude: {
+    coordinates: {
         type: String,
-        required: true
-    },
-    longitude: {
-        type: String,
-        required: true
+        required: true,
+        validate(value){
+            if(validator.isLatLong(value)){
+
+            }else{
+                throw new Error('Coordinate value formatting incorrect')
+            }
+        }
     },
     author: {
         type: String,
