@@ -1,6 +1,6 @@
-const express = require('express')
-const router = new express.Router()
-
+const express = require("express");
+const router = new express.Router();
+/*
 router.get('/about', (req, res) => {
 	res.render('mainpages/about', {
 		title: 'About Me',
@@ -14,7 +14,7 @@ router.get('/app', (req, res) => {
 		name: 'Daniel Brog'
 	})
 })
-/*
+
 router.get('/help', (req, res) => {
 	res.render('help', {
 		title: 'Need Help?',
@@ -32,7 +32,7 @@ router.get('/help/*', (req, res) => {
 	})
 
 })
-*/
+
 router.get('/login', (req, res) => {
 	res.render('login', {
 		title: 'Login',
@@ -58,5 +58,5 @@ router.get('/profile', (req, res) => {
 		name: 'Daniel Brog',
 	})
 })
-
-module.exports = router
+*/
+module.exports = router;
